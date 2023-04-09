@@ -1,0 +1,73 @@
+{% extends 'base/_main.html' %}
+
+{% block title %} Sing up {% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-3"></div>
+            <div class="col-6 bg-light mt-5">
+                <h1 class="text-center">Sign Up Form</h1>
+                <form class="dropdown p-4" method="POST">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <div class="row">
+                            <div class="col">
+                                {{form.first_name}}
+                            </div>
+                            <div class="col">
+                                {{form.last_name}}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <div class="row">
+                            <div class="col">
+                                {{form.email}}
+                            </div>
+                            <div class="col">
+                                {{form.username}}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <div class="row">
+                            <div class="col">
+                                {{form.password1}}
+                            </div>
+                            <div class="col">
+                                {{form.password2}}
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    {% if form.errors %}
+                        {% for field in form %}
+                            {% for error in field.errors %}
+                                <div class="alert alert-danger">
+                                    {{error}}
+                                </div>
+                            {% endfor %}
+                        {% endfor %}
+                    {% endif %}
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end ">
+                        <button type="submit" class="btn btn-primary">Create Account</button>
+                    </div>
+                    <div class="dropdown-divider"></div>
+                        
+                        <a class="dropdown-item" href="{% url 'login' %}"> You have an account <span class="text-primary"> Log in </span></a>
+                       
+                        <br>
+                        
+                    </div>
+                </form>
+        </div>
+        <br>
+        <div class="col-3"></div>
+    </div>  
+</div>
+<br>
+
+{% endblock content %}

@@ -1,0 +1,52 @@
+{% extends 'base/_main.html' %}
+
+{% block title %} Login {% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col"></div>
+        <div class="col-4 bg-light mt-5 border border-light">
+            <h1 class="text-center">Log-in Form</h1>
+            <div class="dropdown">
+                <form class="px-4 py-3" method="POST">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label class="form-label">Username</label><br>
+                        <div class="" >
+                            {{form.username}}
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Password</label>
+                        <div>
+                            {{form.password}}
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                    </div>
+                    <input type="submit" value="Log In" class="btn btn-primary">
+                    <br>
+                    {% if messages %}
+                        {% for message in messages %}
+                            <div {% if message.tags %} class="alert alert-{{message.tags}}" {% endif %}> 
+                                {{message}}
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                </form>
+                <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="{% url 'signup' %}"> New around here? <span class="text-primary"> Sign up </span></a>
+                    <a class="dropdown-item" href="{% url 'password_reset' %}">Forgot password?</a>
+                    <br>
+            </div>
+        </div>
+        <div class="col"></div>
+    </div>
+</div>
+    
+
+
+
+{% endblock content %}

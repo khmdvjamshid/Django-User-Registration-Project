@@ -1,0 +1,21 @@
+{% extends 'base/_main.html' %}
+
+{% block title %} Dashboard {% endblock %}
+{% block content %}
+
+  <div class="container">
+    <div class="row">
+        <div class="col-3"></div>
+        <div class="col-6 mt-5 border border-light bg-light">
+            <h2 class="text-center">Welcome <strong><i> {{user.username}} </i></strong></h2>
+            <h3>First Name: {{user.first_name}}  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Last Name: {{user.last_name}}</h3>
+            <h4>Last time loged in: {{last_login}}</h4>
+            <form action="{% url 'logout' %}">
+                <input type="submit" value="Log Out" class="text-white btn btn-dark">
+            </form>
+        </div>
+        <div class="col-3"></div>
+    </div>
+  </div>
+    
+{% endblock content %}

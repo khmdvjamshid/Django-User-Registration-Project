@@ -1,0 +1,20 @@
+*.pot
+settings.py
+db.sqlite3
+
+# Django related files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pyi
+*.egg-info/
+*.egg
+*.log
+*.swp
+
+# Environment and dependencies
+venv/
+env
+pipenv.lock
+pipfile.lock

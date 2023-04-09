@@ -1,0 +1,32 @@
+{% extends 'base/_main.html' %}
+
+{% block title %} Main Page {% endblock %}
+
+{% block content %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-3"></div>
+            <div class="col-6 mt-5 border border-light bg-light">
+            <h1 class="text-center">Main Page</h1>
+            {% if user.is_authenticated %}
+            <form action="{% url 'logout' %}" method="POST">
+                {% csrf_token %}
+                <div class="text-center">
+                    <input type="submit" value="Log Out" class="btn btn-dark">
+                    
+                    <button class="btn btn-dark mt-0"><a href="{% url 'dashboard' %}" class="text-white">{{user.username}}</a></button> 
+                </div>
+            </form>
+            
+            {% else %}
+            <div class="text-center">
+                <button class="btn btn-dark"><a href="{% url 'login' %}" class="text-white">Log In</a></button>
+                <button class="btn btn-dark"><a href="{% url 'signup' %}" class="text-white">Sign Up</a></button>
+            </div>
+            {% endif %}
+            </div>
+            <div class="col-3"></div>
+        </div>
+    </div>
+{% endblock content %}
