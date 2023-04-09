@@ -44,4 +44,4 @@ If you would like to contribute to this project, please fork the repository and 
 
 ## License
 
-This project is licensed under the MIT License. See the [LICENSE](https://github.com/khmdvjamshid/Django-User-Registration-Project/blob/c6c7278a091a19719bfeb8b08a1bfd3e7cbee43c/LICENSE) file for details.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
